@@ -28,6 +28,22 @@ public class IntNode {
 		
 		link=newLink;	// can be null if there is no node after this
 	}
+	public void printLink() {
+		data=getData();
+		link=getLink();
+		System.out.println(data+ "   " + link);
+			
+	}
+	//element is the data to place in the new node
+	public void addNodeAfter(int element) {
+		
+		link = new IntNode(element, link);
+		
+		
+	}
+	public void removeNodeAfter() {
+		link=link.link;
+	}
 	
 	
 	
@@ -35,10 +51,24 @@ public class IntNode {
 	
 	public static void main(String[] args) {
 		IntNode head;
+		IntNode tail;
 		head = new IntNode(42, null);
-	//	head = new IntNode(getData(), null);
-	//	int i = getData();
-		// System.out.println(getData());
+		//IntNode link = head;
+		IntNode link2=new IntNode(5, head);
+		IntNode link3=new IntNode(22, link2);
+		IntNode link4 = new IntNode(0, head);
+		
+		head.printLink();
+		link2.printLink();
+		link3.printLink();
+		link4.printLink();
+		head = head.getLink();
+	//	head.printLink();
+		link2.addNodeAfter(99);
+		link2.removeNodeAfter();
+		link2.removeNodeAfter();
+		link2.removeNodeAfter();
+		
 	}
 	
 	
